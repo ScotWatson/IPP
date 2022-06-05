@@ -14,11 +14,11 @@ window.addEventListener("load", function () {
   document.body.appendChild(btnFetch);
   btnFetch.addEventListener("click", function (evt) {
     const dest1 = "ipps://" + elemIPAddress.value;
-    const dest1 = "https://" + elemIPAddress.value + ":443";
+    const dest2 = "https://" + elemIPAddress.value + ":443";
     const data = Uint8Array.from([ 0x01, 0x00, 0x00, 0x0A, 0x03, 0x00]);
     const myBlob = new Blob(data, { type: "application/ipp" });
-    fetch(dest, { method: "POST", body: myBlob}).then(showResponse, showError);
-    fetch(dest, { method: "POST", body: myBlob}).then(showResponse, showError);
+    fetch(dest1, { method: "POST", body: myBlob}).then(showResponse, showError);
+    fetch(dest2, { method: "POST", body: myBlob}).then(showResponse, showError);
     function showResponse(response) {
       console.log(response);
       alert("done");
